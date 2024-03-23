@@ -3,16 +3,12 @@ package com.example.wadlogin;
 import java.sql.*;
 
 public class DatabaseService {
-    private static final String DB_URL = "jdbc:postgresql://dpg-cno5r2ect0pc73ddn100-a.oregon-postgres.render.com:5432/reg_list";
-    private static final String USER = "reg_list_user";
-    private static final String PASS = "s3RS4tC91Hw7AwgPj1rYU20PkKxtKwFr";
-
     public boolean login(String username, String password) {
         String query = "SELECT * FROM table_name WHERE username = ? AND password = ?";
 
         try {
             Class.forName("org.postgresql.Driver");
-            try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            try (Connection conn = DriverManager.getConnection(DatabaseConfig.DB_URL, DatabaseConfig.USER, DatabaseConfig.PASS);
                  PreparedStatement stmt = conn.prepareStatement(query)) {
 
                 stmt.setString(1, username);
@@ -37,7 +33,7 @@ public class DatabaseService {
 
         try {
             Class.forName("org.postgresql.Driver");
-            try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            try (Connection conn = DriverManager.getConnection(DatabaseConfig.DB_URL, DatabaseConfig.USER, DatabaseConfig.PASS);
                  PreparedStatement stmt = conn.prepareStatement(query)) {
 
                 stmt.setString(1, firstName);
@@ -64,7 +60,7 @@ public class DatabaseService {
 
         try {
             Class.forName("org.postgresql.Driver");
-            try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            try (Connection conn = DriverManager.getConnection(DatabaseConfig.DB_URL, DatabaseConfig.USER, DatabaseConfig.PASS);
                  PreparedStatement stmt = conn.prepareStatement(query)) {
 
                 stmt.setString(1, username);
