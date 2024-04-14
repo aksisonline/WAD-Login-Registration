@@ -23,7 +23,7 @@ public class RegistryServlet extends HttpServlet {
         boolean registerSuccess = databaseService.register(firstName, lastName, phoneNumber, rollNo, username, password);
 
         if (registerSuccess) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("login.jsp");
         } else {
             response.sendRedirect("register.jsp?error=true");
         }

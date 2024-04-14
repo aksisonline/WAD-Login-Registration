@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("user", user);
             request.getRequestDispatcher("success.jsp").forward(request, response);
         } else {
-            response.sendRedirect("index.jsp?error=true");
+            response.sendRedirect("login.jsp?error=true");
         }
     }
 }
